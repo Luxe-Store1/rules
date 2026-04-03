@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Community | القوانين العامة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+        
+        :root {
+            --gold-primary: #c4a052;
+            --bg-dark: #050505;
+            --card-bg: #0b0b0b;
+            --border-color: #1a1a1a;
+        }
+
+        body { 
+            background-color: var(--bg-dark); 
+            color: #e5e7eb; 
+            font-family: 'Cairo', sans-serif; 
+            margin: 0;
+            overflow-x: hidden;
+            user-select: none; /* منع تحديد النصوص للحماية */
+        }
+
+        /* --- قسم البنر المطور (Hero Section) --- */
+        .header-hero {
+            background-image: linear-gradient(to bottom, rgba(5, 5, 5, 0.2), rgba(5, 5, 5, 0.95)), 
+                              url('');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 80vh; /* يعطي طول فخم للبنر */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .animate-logo {
+            animation: fadeInDown 0.8s ease-out forwards, goldPulse 2s infinite 1s;
+            border: 2px solid var(--gold-primary);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes goldPulse {
+            0% { box-shadow: 0 0 0 0 rgba(196, 160, 82, 0.5); }
+            70% { box-shadow: 0 0 0 20px rgba(196, 160, 82, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(196, 160, 82, 0); }
+        }
+
+        /* تنسيق النصوص لتجنب التداخل */
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .gold-text { color: var(--gold-primary); }
+
+        /* الكروت والقوانين */
+        .rule-card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 12px; 
+            margin-bottom: 12px; 
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .rule-card:hover { 
+            border-color: var(--gold-primary); 
+            transform: translateY(-3px);
+        }
+
+        .accordion-content { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: 0.4s ease; 
+            opacity: 0;
+            color: #9ca3af;
+        }
+        
+        .active .accordion-content { 
+            max-height: 300px; 
+            opacity: 1; 
+            padding: 15px 24px 24px; 
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn-discord {
+            background: linear-gradient(45deg, var(--gold-primary), #e0bb6b);
+            color: #000;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(196, 160, 82, 0.3);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-discord:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(196, 160, 82, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-hero">
+        <img src="https://cdn.discordapp.com/attachments/1487524271973470409/1489688499379765298/supawork-0446a2c9a2494c42b5a6397e6e487a95.png?ex=69d15407&is=69d00287&hm=0a340806f10e3b8283c09fdad4966cbf91a1b228853b15b53e0261563c430576&" 
+             alt="Logo" class="w-32 h-32 md:w-40 md:h-40 rounded-full animate-logo mb-6 object-cover">
+        
+        <h1 class="main-title">
+            <span class="gold-text">LUXE</span> COMMUNITY
+        </h1>
+        
+        <p class="text-sm text-gray-400 tracking-[5px] uppercase mb-8">
+            Created by <span class="gold-text font-bold">3siri</span>
+        </p>
+
+        <a href="https://discord.gg/TpNJSH6P6P" target="_blank" class="btn-discord">
+            <i class="fab fa-discord text-xl"></i> الانضمام للسيرفر
+        </a>
+    </header>
+
+    <main class="max-w-3xl mx-auto pb-24 px-6 -mt-16 relative z-10">
+        <div class="flex items-center gap-3 mb-8 pr-2">
+            <i class="fas fa-shield-alt text-xl gold-text"></i>
+            <h2 class="text-2xl font-bold text-white">قوانين الديسكورد العامة</h2>
+        </div>
+
+        <div id="rules-container"></div>
+
+        <div class="mt-8 p-4 bg-[#0d0d0d] border-r-4 border-[#c4a052] rounded text-sm text-gray-400">
+            <i class="fas fa-info-circle ml-2 gold-text"></i>
+            دخولك السيرفر يعني موافقتك الكاملة على القوانين، والجهل بها لا يعفي من المسؤولية.
+        </div>
+    </main>
+
+    <footer class="text-center py-10 border-t border-[#1a1a1a] bg-[#080808]">
+        <p class="text-gray-500 text-xs font-bold tracking-widest uppercase mb-2">LUXE COMMUNITY &copy; 2026</p>
+        <p class="text-gray-600 text-xs">Owner: <span class="gold-text">3siri</span></p>
+    </footer>
+
+    <script>
+        const rules = [
+            ["الاحترام واجب", "يمنع السب، القذف، العنصرية، أو التقليل من الآخرين بأي شكل."],
+            ["يمنع التهديد", "يمنع الابتزاز أو نشر الخوف أو التهديد بالحظر التعسفي."],
+            ["الدعاية والإعلان", "يمنع نشر الروابط أو السيرفرات الأخرى بدون إذن إداري."],
+            ["منع السبام", "يمنع تكرار الرسائل أو المنشن المزعج أو إغراق الشات بالصور."],
+            ["انتحال الشخصية", "يمنع تقمص دور الإدارة أو أي عضو آخر في السيرفر."]
+        ];
+
+        const container = document.getElementById('rules-container');
+        rules.forEach((rule, index) => {
+            const ruleNumber = (index + 1).toString().padStart(2, '0');
+            container.innerHTML += `
+                <div class="rule-card" onclick="this.classList.toggle('active')">
+                    <div class="p-5 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-[#141414] w-10 h-10 flex items-center justify-center rounded text-[--gold-primary] font-bold border border-[#1a1a1a]">${ruleNumber}</div>
+                            <div class="text-white font-semibold">${rule[0]}</div>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-600 text-xs transition-transform"></i>
+                    </div>
+                    <div class="accordion-content">${rule[1]}</div>
+                </div>
+            `;
+        });
+
+        // حماية F12 والزر الأيمن
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) return false;
+        };
+    </script>
+</body>
+</html>
